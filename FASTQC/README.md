@@ -1,11 +1,38 @@
-# FastQC Files
-- After sequences are downloaded, generate fastqc files using fastqc_dir.sh script found in    /bigdata/messaoudilab/arivera/Scripts/fastqc/fastqc_dir.sh
-- Run the script 
+Used to generate quality reports of fastq data
+
+# Required files
+fastqc_dir.sh
+fastqc.sh
+(see examples)
+
+fastqc.sh is a shell script that will load fastqc and run it on zipped fastq files. 
+fastqc_dir.sh is a shell wrapper that will execute "fastqc.sh" on a directory containing fastq files
+
+# Modifications
+## fastq.sh
+You can change/add additional arguments. See Fastqc manual
+
+## fastqc_dir.sh
+scriptsdir: should be changed to the directory (given as absolute path) where the script exists
+for f in `$directory`*.gz: zipped fastq files should end in .gz. Othersize choose a basename/suffix that is common for all files
+
+# Usage
+
 ```
-sh “absolute path for fastqc_dir.sh” /”absolute pathway  for the ‘sequences’ directory” /”absolute pathway for the output directory”
+sh fastqc_dir.sh directory output_directory
+```
+sh = will execute shell script
+fastqc_dir.sh - input absolute path and name of script
+directory - absolute path of directory you will run fastqc_dir.sh on
+output_directory - absolute path of directory that results will be generated (can be same as input directory)
+
+example
+```
+sh /bigdata/messaoudilab/abotr002/Scripts/fastqc_dir.sh /bigdata/messaoudilab/abotr002/data/sequences/ /bigdata/messaoudilab/abotr002/data/sequences/
 ```
 
-Example: sh /bigdata/messaoudilab/abotr002/Scripts/fastqc_dir.sh /bigdata/messaoudilab/abotr002/data/sequences/ /bigdata/messaoudilab/abotr002/data/sequences/
+# Interpreting results
 
-- Analyze generated fastQC; check total sequences, sequence length (101 or 75 for NextSeq), %GC (low 40s)
+- Analyze generated fastQC; check total sequences, sequence length (101 for HiSeq or 75 for NextSeq), %GC (low 40s)
 - Check quality control (Phred score: 30 or higher)
+- See FASTQC_interpretation.pdf
