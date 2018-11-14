@@ -14,6 +14,7 @@ You can change/add additional arguments. See Fastqc manual
 
 ## fastqc_dir.sh
 scriptsdir: should be changed to the directory (given as absolute path) where the script exists
+
 for f in `$directory`*.gz: zipped fastq files should end in .gz. Othersize choose a basename/suffix that is common for all files
 
 # Usage
