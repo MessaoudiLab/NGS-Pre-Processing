@@ -1,9 +1,11 @@
 Trimming is done through Trim Galore which will quality filter and trim the reads.
 
 # Require files
-trim_galore.sh = shell script that runs trim_galore
+## trim_galore.sh
+shell script that runs trim_galore
 
-trim_galore_directory.sh shell wrapper that runs trim_galore.sh on a directory. This script will also submit the job into a worker node (sbatch)
+## trim_galore_directory.sh 
+shell wrapper that runs trim_galore.sh on a directory. This script will also submit the job into a worker node (sbatch)
 
 # Modifications
 ## trim_galore.sh
