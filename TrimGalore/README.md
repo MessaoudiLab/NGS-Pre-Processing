@@ -1,24 +1,31 @@
-# Trimming
-Once you have checked for quality control, you must trim sequences if certain regions vary greatly from data in order to not distort sequence assembly. Trimming is done through Trim Galore which will quality filter and trim the reads. You must use a script and signify the phred score and number of base pairs wanted at the end of the command line.
+Trimming is done through Trim Galore which will quality filter and trim the reads.
 
-- In data directory, make new directory: 
+# Require files
+trim_galore.sh = shell script that runs trim_galore
+trim_galore_directory.sh shell wrapper that runs trim_galore.sh on a directory. This script will also submit the job into a worker node (sbatch)
+
+# Modifications
+## trim_galore.sh
+additional arguments can be added or modified depending on how you'd like sequences to be trimmed. 
+See manual
+
+# trim_galore_directory.sh
+scriptsdir: should be changed to the directory (given as absolute path) where the script exists
+
+for f in $directory*.gz: zipped fastq files should end in .gz. Othersize choose a basename/suffix that is common for all files
+Check script to make sure it’s linked to the correct script (trim_galore.sh) before executing
+
+# Usage
+You only need to run trim_galore_directory.sh since it is already linked to trim_galore.sh
+The first argument is the directory containing fastq files you want to trim
+The second argument is the phred score cutoff
+The third argument is the minimum length cutoff
+
 ```
-mkdir trim_sequences
+sh absolutepath/trim_galore_directory.sh absolutepath/directory score length
 ```
-- move sequence files (.gz)  from “sequences” to “trim_sequences” directory 
+example 
+
 ```
-mv *.gz ../trim_sequences
+sh /bigdata/messaoudilab/abotr002/Scripts/trim_galore_directory.sh /bigdata/messaoudilab/abotr002/data/sequences/ 30 50
 ```
-- Check trim_galore_directory.sh script to make sure it’s linked to the correct script (trim_galore.sh) before loading the following. 
-```
-sh /”absolute pathway for trim_galore_directory.sh” /”absolutepathwayfor‘sequences’directory 30 75”
-```
-If trimming NextSeq data, Run: 
-```
-sh /”absolute pathway for trim_galore_directory.sh” /”absolutepathwayfor‘sequences’directory 30 50”
-```
-- Check if trimming is done
-```
-qstat | grep “username” (if done, nothing will show)
-```
-- When trimming is complete, check FastQC reports.
