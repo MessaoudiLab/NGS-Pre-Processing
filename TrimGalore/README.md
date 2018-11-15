@@ -9,7 +9,7 @@ trim_galore_directory.sh shell wrapper that runs trim_galore.sh on a directory. 
 additional arguments can be added or modified depending on how you'd like sequences to be trimmed. 
 See manual
 
-# trim_galore_directory.sh
+## trim_galore_directory.sh
 scriptsdir: should be changed to the directory (given as absolute path) where the script exists
 
 for f in $directory*.gz: zipped fastq files should end in .gz. Othersize choose a basename/suffix that is common for all files
