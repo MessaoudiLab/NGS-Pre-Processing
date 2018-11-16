@@ -20,12 +20,12 @@ for f in `$directory`*.gz: zipped fastq files should end in .gz. Othersize choos
 # Usage
 
 ```
-sh fastqc_dir.sh directory output_directory
+sh absolutepath/fastqc_dir.sh absolutepath/directory absolutepath/directory
 ```
 sh = will execute shell script
 fastqc_dir.sh - input absolute path and name of script
 directory - absolute path of directory you will run fastqc_dir.sh on
-output_directory - absolute path of directory that results will be generated (can be same as input directory)
+directory - absolute path of directory that results will be generated (can be same as input directory)
 
 example
 ```
