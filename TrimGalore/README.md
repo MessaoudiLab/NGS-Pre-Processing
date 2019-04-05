@@ -13,16 +13,16 @@ additional arguments can be added or modified depending on how you'd like sequen
 See manual
 
 ## trim_galore_directory.sh
-scriptsdir: should be changed to the directory (given as absolute path) where the script exists
+Line 15: "scriptsdir" should be equal to the directory (given as absolute path) where the script exists
 
-for f in $directory*.gz: zipped fastq files should end in .gz. Othersize choose a basename/suffix that is common for all files
+Line 18: "for f in $directory*.gz": zipped fastq files should end in .gz. Othersize choose a basename/suffix that is common for all files
 Check script to make sure it’s linked to the correct script (trim_galore.sh) before executing
 
 # Usage
 You only need to run trim_galore_directory.sh since it is already linked to trim_galore.sh
-The first argument is the directory containing fastq files you want to trim
-The second argument is the phred score cutoff
-The third argument is the minimum length cutoff
+absolutepath/directory = The first argument is the directory containing fastq files you want to trim 
+score = The second argument is the phred score cutoff
+length = The third argument is the minimum length cutoff
 
 ```
 sh absolutepath/trim_galore_directory.sh absolutepath/directory score length
