@@ -1,9 +1,7 @@
 Used to generate quality reports of fastq data
 
 # Required files
-fastqc_dir.sh
-fastqc.sh
-(see examples)
+1. fastqc_dir.sh and 2. fastqc.sh (see examples)
 
 fastqc.sh is a shell script that will load fastqc and run it on zipped fastq files. 
 fastqc_dir.sh is a shell wrapper that will execute "fastqc.sh" on a directory containing fastq files
