@@ -7,13 +7,14 @@ fastqc.sh is a shell script that will load fastqc and run it on zipped fastq fil
 fastqc_dir.sh is a shell wrapper that will execute "fastqc.sh" on a directory containing fastq files
 
 # Modifications
-## fastq.sh
-You can change/add additional arguments. See Fastqc manual
+## fastqc.sh
+fastqc.sh is enough to run basic FASTQC
+but if needed, you can change/add additional arguments. See Fastqc manual
 
 ## fastqc_dir.sh
-scriptsdir: should be changed to the directory (given as absolute path) where the script exists
+Line 12: In the script make sure to change "scriptsdir" to be equal to the directory (given as absolute path) where the script exists
 
-for f in `$directory`*.gz: zipped fastq files should end in .gz. Otherwize choose a basename/suffix that is common for all files
+Line 15: for f in `$directory`*.gz: zipped fastq files should end in .gz. Otherwize choose a basename/suffix that is common for all files
 
 # Usage
 
@@ -22,8 +23,7 @@ sh absolutepath/fastqc_dir.sh absolutepath/directory absolutepath/directory
 ```
 sh = will execute shell script
 fastqc_dir.sh - input absolute path and name of script
-directory - absolute path of directory you will run fastqc_dir.sh on
-directory - absolute path of directory that results will be generated (can be same as input directory)
+directory - absolute path of directory you will run fastqc_dir.sh on and output directory
 
 example
 ```
